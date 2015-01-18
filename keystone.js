@@ -11,8 +11,9 @@ var keystone = require('keystone');
 
 keystone.init({
 
-	'name': 'Key Test',
-	'brand': 'Key Test',
+	'name': 'Hess',
+	'brand': 'Hess',
+	'Title':'Xumulus',
 	
 	'less': 'public',
 	'static': 'public',
@@ -52,10 +53,14 @@ keystone.set('routes', require('./routes'));
 
 // Configure the navigation bar in Keystone's Admin UI
 
-keystone.set('nav', {
+/*keystone.set('nav', {
 	'posts': ['posts', 'post-categories'],
 	'galleries': 'galleries',
 	'enquiries': 'enquiries',
+	'users': 'users'
+}); */
+keystone.set('nav', {
+	'assets':'assets',
 	'users': 'users'
 });
 

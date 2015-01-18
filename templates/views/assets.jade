@@ -1,0 +1,49 @@
+extends ../layouts/default
+
+block intro
+	.page-content-wrap.bg-light
+		.page-content-holder.no-padding
+				.page-title 
+					h1 Trade Assets			
+		
+block content					
+	.page-content-wrap
+		.page-content-holder
+			.block-heading.this-animate(data-animate="fadeInDown")
+				h2 This is a demo of Marketing Assets
+				.block-heading-text Donec sit amet elementum libero. Curabitur ut lorem id tellus malesuada tincidunt et eget purus. Cras molestie, velit quis viverra ultrices, tortor erat suscipit arcu, a ullamcorper neque lorem et massa. Praesent facilisis tellus nec rutrum luctus. Curabitur non venenatis metus, vitae rhoncus risus.	
+							
+			.row
+				.col-md-12.gallery-filter
+					.button-panel                                   
+						.button.btn.btn-primary.filter(data-filter="all" ) All     
+						.button.btn.btn-primary.filter(data-filter=".cat_hess_collection" ) Hess Collection
+						.button.btn.btn-primary.filter(data-filter=".cat_hess_select" ) Hess Select
+						.button.btn.btn-primary.filter(data-filter=".cat_artezin" ) Artezin	
+						.button.btn.btn-primary.filter(data-filter=".cat_amalaya" ) Amalaya	
+						.button.btn.btn-primary.filter(data-filter=".cat_colome" ) Colome	
+						.button.btn.btn-primary.filter(data-filter=".cat_glen_carlou" ) Glen Carlou
+						.button.btn.btn-primary.filter(data-filter=".cat_macphail" ) MacPhail
+						.button.btn.btn-primary.filter(data-filter=".cat_peter_lehmann" ) Peter Lehmann
+						.button.btn.btn-primary.filter(data-filter=".cat_sequana" ) Sequana
+						
+			.row.mix-grid.thumbnails
+				if assets.length
+					each asset in assets                           
+						div.col-md-3.col-xs-3.cat_all.mix(class='cat_'+asset.brand.toLowerCase().split(' ').join('_'))
+							a.thumbnail-item
+								img(src=asset._.heroImage.limit(680,680))
+								.thumbnail-info
+									.p= asset.name
+									botton.btn.btn-primary Download
+									botton.btn.btn-primary View
+							.thumbnail-data
+								h5= asset.name
+								p= asset.category			
+				else
+					h3.text-muted There are no image assets yet.
+
+block js
+	script(src='/js/lib/mixitup/jquery.mixitup.js')
+	script(src='/js/lib/appear/jquery.appear.js')
+	script(src='js/actions.js')		
